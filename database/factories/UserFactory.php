@@ -16,9 +16,11 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
+            'sede' => $this->faker->city(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            /*'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password*/
+             'password' =>'2y$10$1fkVLei2o65wJm5NffzAUup0iZ4IvPzcJyffB3JobG2Mx084LqGPK', //
             'remember_token' => Str::random(10),
         ];
     }
