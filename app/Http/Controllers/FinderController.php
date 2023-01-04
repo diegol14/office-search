@@ -30,45 +30,44 @@ class FinderController extends Controller
             "branchnumber" => "required|numeric|max:9999|min:1",
         ]);
 
-        echo $check = ($formok) ? "right" : "wrong";
-        echo "<br>";
+        $check = ($formok) ? "right" : "wrong";
 
         //  dd($request->input());
 
         $branchnumber = intval($request->branchnumber);
 
-        echo gettype($branchnumber);
-        echo "<br>";
+        // echo gettype($branchnumber);
+        // echo "<br>";
 
         try {
             $branch = Branch::find($branchnumber);
-            echo gettype($branch);
-            echo "<br>";
-            echo $branch;
-            echo "<br>";
-            echo ($branch->numero);
-            echo "<br>";
+            // echo gettype($branch);
+            // echo "<br>";
+            // echo $branch;
+            // echo "<br>";
+            // echo ($branch->numero);
+            // echo "<br>";
+             $mantok = ($branch->mantenimiento);
 
-            echo $mantok = ($branch->mantenimiento);
-            echo "<br>";
             switch ($mantok) {
                 case '1':
-                    $mantok = "si";
+                    $mantok = "SI";
                     break;
 
                 case '0':
-                    $mantok = "no";
+                    $mantok = "NO";
                     break;
 
                 default:
-                    $mantok="no existe en nuestra base de datos";
+                    $mantok="NO EXISTE EN NUESTRA BASE DE DATOS";
                     break;
             }
         } catch (\Throwable $th) {
             //throw $th;
-            $mantok="no existe en nuestra base de datos";
+            $mantok="NO EXISTE EN NUESTRA BASE DE DATOS";
         } finally {
-            echo "Mantenimiento: " . $mantok;
+            return view("branch-response", compact(["mantok","branchnumber"]));
+            // echo "Mantenimiento: " . $mantok;
         }
     }
 

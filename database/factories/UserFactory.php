@@ -20,7 +20,8 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             /*'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password*/
-             'password' =>'2y$10$1fkVLei2o65wJm5NffzAUup0iZ4IvPzcJyffB3JobG2Mx084LqGPK', //
+            //  'password' =>'2y$10$1fkVLei2o65wJm5NffzAUup0iZ4IvPzcJyffB3JobG2Mx084LqGPK', //Saima91 en vps
+             'password' => '$2y$10$TATnstG2MKAV54Zmo6ZRh.UJHl4gsZb3tlBQ.jNunO0EFKltEteIi', //saima91 en local
             'remember_token' => Str::random(10),
         ];
     }
